@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: []
 })
 export class WeatherHomeComponent implements OnInit{
-  initialCityName = 'Blumenau'
+  initialCityName = 'Blumenau';
+  weatherDatas!: any;
 
   constructor(private WeatherService: WeatherService) {}
 
