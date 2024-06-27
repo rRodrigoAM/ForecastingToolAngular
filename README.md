@@ -10,7 +10,6 @@ Este projeto é uma aplicação Angular que utiliza uma API de previsão do temp
 
 - Exibição da previsão do tempo atual com detalhes como temperatura, umidade e condições climáticas.
 - Previsão detalhada por horas e por dias.
-- Interface intuitiva para navegação entre diferentes visualizações de tempo.
 
 ## Tecnologias Utilizadas
 
