@@ -5,18 +5,23 @@
       placeholder="Buscar localização"
       name="city"
       [(ngModel)]="initialCityName"
+      aria-label="Digite o nome da cidade"
     />
 
-    <span (click)="onSubmit()">
+    <button type="submit" class="search-button" aria-label="Buscar clima">
       <fa-icon
-        animation="fade"
-        style="--fa-animation-duration: 5s; cursor: pointer"
         size="lg"
         class="search-icon"
         [icon]="searchIcon"
       ></fa-icon>
-    </span>
+    </button>
   </form>
 </div>
 
-<app-weather-card *ngIf="weatherDatas" [weatherDatasInput]="weatherDatas"></app-weather-card>
+<div class="card-container">
+  <app-weather-card 
+    *ngIf="weatherDatas" 
+    [weatherDatasInput]="weatherDatas"
+    class="weather-card"
+  ></app-weather-card>
+</div>
