@@ -1,15 +1,12 @@
 .container {
   width: 92%;
   max-width: 998px;
-  height: 95%;
-  max-height: 1000px;
   margin: 50px;
   padding: 0;
   background: rgba(31, 64, 126, 0.12);
   backdrop-filter: blur(40px);
   border-radius: 30px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.18);
 
   .location {
@@ -88,10 +85,12 @@
   .more-info-container {
     display: grid;
     justify-content: center;
-    align-content: center;
+    align-content: start;
     width: 96%;
     max-width: 900px;
-    grid-template-columns: repeat(auto-fit, minmax(0px, 200px ));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+    align-items: start;
     gap: 10px;
   }
 
