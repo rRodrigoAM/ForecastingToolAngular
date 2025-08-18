@@ -2,13 +2,13 @@
   <form #form="ngForm" (submit)="onSubmit()">
     <input
       type="text"
-      placeholder="Buscar localização"
+      placeholder="Search location"
       name="city"
       [(ngModel)]="initialCityName"
-      aria-label="Digite o nome da cidade"
+      aria-label="Enter city name"
     />
 
-    <button type="submit" class="search-button" aria-label="Buscar clima">
+    <button type="submit" class="search-button" aria-label="Search weather">
       <fa-icon
         size="lg"
         class="search-icon"
@@ -20,8 +20,8 @@
 
 <div class="card-container">
   <app-weather-card 
-    *ngIf="weatherDatas" 
-    [weatherDatasInput]="weatherDatas"
+    *ngIf="weatherData" 
+    [weatherData]="weatherData"
     class="weather-card"
   ></app-weather-card>
-</div>
+</div> 

@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  padding: 40px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.search {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  position: relative;
+
+  form {
+    display: flex;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+
+  input {
+    flex: 1;
+    padding: 20px 30px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    &:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  .search-button {
+    background: linear-gradient(135deg, #4A90E2, #63B3ED);
+    border: none;
+    padding: 0 35px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: linear-gradient(135deg, #5da2ff, #7bc6ff);
+    }
+
+    fa-icon {
+      color: white;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+} 

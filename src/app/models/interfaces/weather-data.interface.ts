@@ -1,4 +1,4 @@
-export interface WeatherDatas {
+export interface WeatherData {
   coord: {
     lon: number;
     lat: number;
@@ -42,4 +42,4 @@ export interface WeatherDatas {
   id: number;
   name: string;
   cod: number;
-}
+} 

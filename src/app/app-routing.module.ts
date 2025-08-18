@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WeatherHomeComponent } from './modules/wheater/page/weather-home/weather-home.component';
 
 const routes: Routes = [
   {
@@ -10,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'weather',
-    component: WeatherHomeComponent
+    loadChildren: () => import('./modules/weather/weather.module').then(m => m.WeatherModule)
   }
 ];
 
