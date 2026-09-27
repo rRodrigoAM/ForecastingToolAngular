@@ -18,6 +18,7 @@ export class WeatherService {
     const params = {
       q: cityName,
       units: 'metric',
+      lang: 'pt_br',
       mode: 'json',
       appid: this.apiKey
     };

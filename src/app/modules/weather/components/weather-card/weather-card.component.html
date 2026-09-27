@@ -1,13 +1,6 @@
 <div class="container" *ngIf="weatherData">
   <div class="upper-data">
-    <img
-      src="../../../../../assets/sun.jpg"
-      *ngIf="weatherData.main.temp > 15"
-    />
-    <img
-      src="../../../../../assets/cold1.jpg"
-      *ngIf="weatherData.main.temp <= 15"
-    />
+    <img [src]="heroImage" alt="Weather condition" />
 
     <div class="weather-data">
       <div class="location">{{ weatherData.name }}</div>
@@ -18,13 +11,13 @@
   </div>
 
   <div class="lower-data">
-    <div class="more-info-label">More Information</div>
+    <div class="more-info-label">Mais informações</div>
 
     <div class="more-info-container">
       <div class="info-block">
         <div class="info-block-label">
           <fa-icon size="lg" [icon]="minTemperatureIcon"></fa-icon>
-          <span>Minimum</span>
+          <span>Mínima</span>
         </div>
         <div class="info-block-value">
           {{ weatherData.main.temp_min | number : "1.0-0" }}ºC
@@ -34,7 +27,7 @@
       <div class="info-block">
         <div class="info-block-label">
           <fa-icon size="lg" [icon]="maxTemperatureIcon"></fa-icon>
-          <span>Maximum</span>
+          <span>Máxima</span>
         </div>
         <div class="info-block-value">
           {{ weatherData.main.temp_max | number : "1.0-0" }}ºC
@@ -43,8 +36,48 @@
 
       <div class="info-block">
         <div class="info-block-label">
+          <fa-icon size="lg" [icon]="feelsLikeIcon"></fa-icon>
+          <span>Sensação térmica</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.main.feels_like | number : "1.0-0" }}ºC
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="conditionIcon"></fa-icon>
+          <span>Condição do tempo</span>
+        </div>
+        <div class="info-block-value">
+          {{ weatherData.weather[0].description }}
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="sunriseIcon"></fa-icon>
+          <span>Nascer do sol</span>
+        </div>
+        <div class="info-block-value">
+          {{ formatLocalTime(weatherData.sys.sunrise) }}
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="sunsetIcon"></fa-icon>
+          <span>Pôr do sol</span>
+        </div>
+        <div class="info-block-value">
+          {{ formatLocalTime(weatherData.sys.sunset) }}
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
           <fa-icon size="lg" [icon]="humidityIcon"></fa-icon>
-          <span>Humidity</span>
+          <span>Umidade</span>
         </div>
         <div class="info-block-value">
           {{ weatherData.main.humidity }}%
@@ -54,7 +87,7 @@
       <div class="info-block">
         <div class="info-block-label">
           <fa-icon size="lg" [icon]="windIcon"></fa-icon>
-          <span>Wind</span>
+          <span>Vento</span>
         </div>
         <div class="info-block-value">
           {{ weatherData.wind.speed | number : "1.1-1" }} km/h

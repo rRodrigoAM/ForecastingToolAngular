@@ -5,6 +5,7 @@ export const APP_CONSTANTS = {
   },
   WEATHER: {
     DEFAULT_CITY: 'São Paulo',
-    TEMPERATURE_THRESHOLD: 15
+    TEMPERATURE_THRESHOLD: 15,
+    TEMPERATURE_HOT_THRESHOLD: 25
   }
-} as const; 
+} as const;

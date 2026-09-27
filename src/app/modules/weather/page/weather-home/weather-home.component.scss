@@ -1,30 +1,95 @@
 :host {
-  display: block;
-  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   min-height: 100vh;
+  padding: 40px 20px;
   box-sizing: border-box;
+  background: var(--theme-bg);
+}
+
+// Tema padrão (carregando / sem dados): neutro
+:host {
+  --theme-bg: linear-gradient(165deg, #a6a29a, #6e6a63);
+  --accent-a: #9c948a;
+  --accent-b: #7c756b;
+}
+
+// Quentes: areia/terracota queimada
+:host([data-theme='hot-clear']) {
+  --theme-bg: linear-gradient(165deg, #d9a87c, #b4785b);
+  --accent-a: #c08568;
+  --accent-b: #9c6749;
+}
+
+:host([data-theme='hot-clouds']) {
+  --theme-bg: linear-gradient(165deg, #c7a98d, #9e7f65);
+  --accent-a: #b08a68;
+  --accent-b: #8e6b4c;
+}
+
+// Amenas: greige / neutro quente
+:host([data-theme='mild-clear']) {
+  --theme-bg: linear-gradient(165deg, #c0b3a0, #95897a);
+  --accent-a: #a79a85;
+  --accent-b: #857a69;
+}
+
+:host([data-theme='mild-clouds']) {
+  --theme-bg: linear-gradient(165deg, #aba79e, #827e76);
+  --accent-a: #9b968c;
+  --accent-b: #7b766d;
+}
+
+// Frios: ardósia
+:host([data-theme='cold-clear']) {
+  --theme-bg: linear-gradient(165deg, #9fb3c2, #70879a);
+  --accent-a: #8aa0b0;
+  --accent-b: #6b8294;
+}
+
+:host([data-theme='cold-clouds']) {
+  --theme-bg: linear-gradient(165deg, #899aa8, #607383);
+  --accent-a: #7c8d9b;
+  --accent-b: #5e707f;
+}
+
+// Chuva (independe da temperatura): azul acinzentado molhado
+:host([data-theme='rain']) {
+  --theme-bg: linear-gradient(165deg, #7e8e9c, #5a6a7a);
+  --accent-a: #6f808f;
+  --accent-b: #52626f;
+}
+
+// Neve: gelo pálido
+:host([data-theme='snow']) {
+  --theme-bg: linear-gradient(165deg, #d8e0e7, #b2c1cc);
+  --accent-a: #9fb3c4;
+  --accent-b: #7e93a4;
 }
 
 .search {
+  width: 100%;
   max-width: 800px;
-  margin: 0 auto 50px;
+  margin: 0 auto clamp(30px, 6vh, 50px);
   position: relative;
 
   form {
     display: flex;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
     overflow: hidden;
   }
 
   input {
     flex: 1;
-    padding: 20px 30px;
+    min-width: 0;
+    padding: clamp(14px, 3vw, 20px) clamp(18px, 4vw, 30px);
     border: none;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
     color: white;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     font-weight: 500;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 
@@ -39,28 +104,27 @@
   }
 
   .search-button {
-    background: linear-gradient(135deg, #4A90E2, #63B3ED);
+    background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
     border: none;
-    padding: 0 35px;
+    padding: 0 clamp(22px, 4vw, 35px);
     display: flex;
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     &:hover {
-      background: linear-gradient(135deg, #5da2ff, #7bc6ff);
+      filter: brightness(1.12);
     }
 
     fa-icon {
       color: white;
-      font-size: 1.5rem;
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     }
   }
 }
 
 .card-container {
-  display: flex;
-  justify-content: center;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
-} 
+}
