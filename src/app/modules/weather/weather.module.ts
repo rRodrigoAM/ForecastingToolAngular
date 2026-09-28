@@ -6,12 +6,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { WeatherRoutingModule } from './weather-routing.module';
 import { WeatherHomeComponent } from './page/weather-home/weather-home.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
-import { WeatherService } from './services/weather.service';
+import { CityInfoCardComponent } from './components/city-info-card/city-info-card.component';
+import { WikipediaService } from './services/wikipedia.service';
 
 @NgModule({
   declarations: [
     WeatherHomeComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    CityInfoCardComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,7 @@ import { WeatherService } from './services/weather.service';
     FontAwesomeModule,
     WeatherRoutingModule
   ],
-  providers: [WeatherService]
+  // WikipediaService não tem providedIn: 'root', precisa ser registrado aqui
+  providers: [WikipediaService]
 })
-export class WeatherModule { } 
+export class WeatherModule { }

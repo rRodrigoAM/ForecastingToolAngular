@@ -1,0 +1,85 @@
+<section class="city-info-card" aria-labelledby="city-info-title">
+  <header class="card-header">
+    <p class="eyebrow">Mais sobre:</p>
+    <h2 id="city-info-title">{{ weatherData.name }}</h2>
+    <p class="country">{{ weatherData.sys.country }}</p>
+  </header>
+
+  <p *ngIf="isLoading" class="status-message" role="status">
+    Buscando informações da cidade...
+  </p>
+
+  <div *ngIf="!isLoading && hasError" class="status-message" role="status">
+    Não foi possível carregar as informações da Wikipédia agora.
+  </div>
+
+  <ng-container *ngIf="!isLoading && !hasError">
+    <a
+      *ngIf="citySummary as summary; else summaryUnavailable"
+      class="city-summary"
+      [href]="summary.articleUrl"
+      [attr.aria-label]="'Ler artigo ' + summary.title + ' na Wikipédia'"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        *ngIf="summary.thumbnailUrl"
+        class="city-image"
+        [src]="summary.thumbnailUrl"
+        [alt]="'Imagem relacionada a ' + summary.title"
+        loading="lazy"
+      />
+      <div class="summary-content">
+        <h3>{{ summary.title }}</h3>
+        <p>{{ summary.extract || 'Não há um resumo disponível para este artigo.' }}</p>
+      </div>
+    </a>
+
+    <ng-template #summaryUnavailable>
+      <p class="empty-message">Não encontramos um artigo sobre esta cidade.</p>
+    </ng-template>
+
+    <section class="nearby-section" aria-labelledby="nearby-title">
+      <div class="section-heading">
+        <h3 id="nearby-title">Popular:</h3>
+        <span *ngIf="nearbyArticles.length" class="result-count">
+          {{ nearbyArticles.length }}
+        </span>
+      </div>
+
+      <p *ngIf="!nearbyArticles.length" class="empty-message">
+        Não encontramos outros artigos geográficos próximos.
+      </p>
+
+      <ul *ngIf="nearbyArticles.length" class="nearby-list">
+        <li *ngFor="let article of nearbyArticles" class="nearby-item">
+          <a
+            class="nearby-item-link"
+            [href]="article.articleUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              *ngIf="article.thumbnailUrl"
+              class="place-image"
+              [src]="article.thumbnailUrl"
+              [alt]="''"
+              loading="lazy"
+            />
+            <div class="place-content">
+              <span class="place-title">{{ article.title }}</span>
+              <p *ngIf="article.extract">{{ article.extract }}</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="source-note">
+      Informações da
+      <a href="https://pt.wikipedia.org/" target="_blank" rel="noopener noreferrer">
+        Wikipédia
+      </a>
+    </footer>
+  </ng-container>
+</section>

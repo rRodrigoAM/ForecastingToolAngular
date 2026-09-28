@@ -25,7 +25,7 @@ export class WeatherService {
 
     return this.http.get<WeatherData>(this.baseUrl, { params })
       .pipe(
-        retry(1),
+        retry(1), // uma segunda tentativa antes de tratar como erro
         catchError(this.handleError)
       );
   }

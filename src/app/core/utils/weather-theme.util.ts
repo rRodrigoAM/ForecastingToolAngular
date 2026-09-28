@@ -1,5 +1,11 @@
 import { APP_CONSTANTS } from '../constants/app.constants';
 
+/**
+ * Mapeia temperatura e condição climática para o tema visual da página.
+ * Os nomes retornados casam com os seletores [data-theme='...'] definidos
+ * no weather-home.component.scss, então qualquer nome novo aqui precisa
+ * existir lá também.
+ */
 export type TemperatureBand = 'hot' | 'mild' | 'cold';
 export type ConditionGroup = 'clear' | 'clouds' | 'rain' | 'snow';
 
@@ -42,6 +48,7 @@ export function getConditionGroup(conditionMain: string): ConditionGroup {
 export function getThemeName(temp: number, conditionMain: string): string {
   const condition = getConditionGroup(conditionMain);
 
+  // chuva e neve têm visual próprio, independente da faixa de temperatura
   if (condition === 'rain' || condition === 'snow') {
     return condition;
   }

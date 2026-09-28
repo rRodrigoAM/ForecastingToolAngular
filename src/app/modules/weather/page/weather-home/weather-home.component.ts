@@ -45,6 +45,9 @@ export class WeatherHomeComponent implements OnInit, OnDestroy {
             response.main.temp,
             response.weather?.[0]?.main ?? ''
           );
+          // detectChanges() em vez de markForCheck(): dispara a detecção na
+          // hora, atualizando a tela mesmo quando a resposta chega fora do
+          // zone.js (acontece em webviews embutidos)
           this.changeDetectorRef.detectChanges();
         },
         error: (error) => console.error('Error fetching weather data:', error),

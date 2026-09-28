@@ -48,6 +48,8 @@ export class WeatherCardComponent {
     return `${hours}:${minutes}`;
   }
 
+  // imagem de fundo conforme o clima atual: chuva e neve têm prioridade,
+  // o resto decide pela faixa de temperatura (frio -> paisagem fria, sol caso contrário)
   get heroImage(): string {
     if (!this.weatherData?.weather || !this.weatherData?.main) {
       return HERO_IMAGES.sun;

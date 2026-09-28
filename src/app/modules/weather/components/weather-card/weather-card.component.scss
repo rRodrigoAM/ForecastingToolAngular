@@ -1,9 +1,13 @@
 :host {
-  display: block;
+  display: flex;
   width: 100%;
+  min-width: 0;
 }
 
 .container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -47,8 +51,9 @@
     letter-spacing: 1px;
     max-width: 100%;
     text-align: center;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
     white-space: normal;
   }
 
@@ -58,12 +63,12 @@
     color: white;
     line-height: 1;
     text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    white-space: nowrap;
   }
 }
 
 .lower-data {
+  flex: 1;
   padding: clamp(28px, 5vw, 50px) clamp(20px, 6vw, 60px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
@@ -95,7 +100,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 140px;
+    min-height: 148px;
     width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -109,6 +114,7 @@
 
   .info-block-label {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -116,8 +122,9 @@
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 12px;
     white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
     text-align: center;
     line-height: 1.2;
     width: 100%;
@@ -129,7 +136,7 @@
     }
 
     span {
-      flex: 1;
+      flex: 0 1 auto;
       min-width: 0;
     }
   }

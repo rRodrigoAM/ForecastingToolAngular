@@ -18,10 +18,10 @@
   </form>
 </div>
 
-<div class="card-container">
-  <app-weather-card 
-    *ngIf="weatherData" 
+<div class="card-container" *ngIf="weatherData">
+  <app-weather-card
     [weatherData]="weatherData"
     class="weather-card"
   ></app-weather-card>
-</div> 
+  <app-city-info-card [weatherData]="weatherData"></app-city-info-card>
+</div>
